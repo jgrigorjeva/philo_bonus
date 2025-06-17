@@ -1,7 +1,7 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -pthread 
+CFLAGS = -Wall -Werror -Wextra
 
-SRC = main.c parse_input.c routine.c init.c
+SRC = main.c parse_input.c routine.c init.c time.c print.c clean.c utils.c death.c threads.c
 
 OBJS = $(SRC:.c=.o)
 

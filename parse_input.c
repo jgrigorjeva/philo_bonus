@@ -6,13 +6,14 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 18:01:29 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/16 20:55:01 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/16 23:14:23 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 int	handle_non_digit(const char *nptr);
+int	ft_atoi(const char *nptr);
 
 t_input	*parse_input(int argc, char **argv)
 {
