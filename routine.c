@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 20:32:46 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 15:58:19 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:32:05 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	routine(int i, t_table *table)
 	while (!is_dead(table, i))
 	{
 		think(table, i);
+		if (table->input_data->philo_nbr % 2 == 1 && get_time() - table->last_fed \
+			< 2 * table->input_data->tte + table->input_data->tts)
+			ft_msleep(5);
 		if (!is_dead(table, i))
 			eat(table, i);
 		if (!is_dead(table, i))
