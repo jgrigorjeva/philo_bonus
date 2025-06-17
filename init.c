@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 20:43:47 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 16:31:00 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/17 23:28:06 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ t_table	*init_table(int argc, char **argv)
 
 int	init_sems(t_table *table)
 {
-	// sem_unlink("/forks");
-	// sem_unlink("/print");
-	// sem_unlink("/death");
-	// sem_unlink("/end");
+	sem_unlink("/forks");
+	sem_unlink("/print");
+	sem_unlink("/death");
+	sem_unlink("/max_meals");
+	sem_unlink("/end");
 	table->sems.forks = sem_open("/forks", O_CREAT | O_EXCL, \
 		0644, table->input_data->philo_nbr);
 	table->sems.print = sem_open("/print", O_CREAT | O_EXCL, 0644, 1);

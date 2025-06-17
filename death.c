@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:08:27 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 15:50:07 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/17 23:21:57 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	philo_dies(t_table *table, int i)
 {
 	if (!table->is_dead)
 		print_status(table, i, "died");
+	sem_wait(table->sems.print);
 	sem_post(table->sems.death);
 	table->is_dead = TRUE;
 }
