@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 17:12:50 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/18 17:58:34 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:31:56 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	*death_monitor(void *arg)
 	t_table	*table;
 
 	table = (t_table *)arg;
-
 	while (1)
 	{
 		if (should_die(table))

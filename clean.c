@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 22:50:46 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 16:27:57 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:14:27 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	clean_all(t_table *table)
 	sem_unlink("/max_meals");
 	sem_close(table->sems.end);
 	sem_unlink("/end");
+	sem_destroy(&table->sems.data);
 	free (table->input_data);
 	free(table);
 }

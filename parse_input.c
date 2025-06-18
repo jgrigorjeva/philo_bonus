@@ -6,14 +6,13 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 18:01:29 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/16 23:14:23 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:37:59 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	handle_non_digit(const char *nptr);
-int	ft_atoi(const char *nptr);
+static int	handle_non_digit(const char *nptr);
 
 t_input	*parse_input(int argc, char **argv)
 {
@@ -25,10 +24,7 @@ t_input	*parse_input(int argc, char **argv)
 	input = malloc(sizeof(t_input));
 	if (!input)
 		return (printf("Error allocating input\n"), NULL);
-	input->philo_nbr = ft_atoi(argv[1]);
-	input->ttd = ft_atoi(argv[2]);
-	input->tte = ft_atoi(argv[3]);
-	input->tts = ft_atoi(argv[4]);
+	fill_input_numbers(input, argv);
 	if (argc == 6)
 	{
 		if (ft_atoi(argv[5]) > 0)
@@ -80,7 +76,7 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-int	handle_non_digit(const char *nptr)
+static int	handle_non_digit(const char *nptr)
 {
 	int	i;
 

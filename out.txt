@@ -1,7 +1,0 @@
-0 2 is thinking
-0 2 has taken a fork
-0 2 has taken a fork
-0 2 is eating
-300 2 is sleeping
-501 2 is thinking
-511 2 died

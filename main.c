@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 01:09:36 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/18 17:16:56 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:29:56 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	int			i;
-	pid_t		pid;
 	t_table		*table;
 	pid_t		*pids;
 
@@ -25,30 +24,10 @@ int	main(int argc, char **argv)
 	if (!table)
 		return (1);
 	i = 0;
-	pids = malloc(sizeof(pid_t) * table->input_data->philo_nbr);
+	pids = fork_children(table);
 	if (!pids)
-		return (printf("error in pids malloc\n"), clean_all(table), 1);
-	while (i < table->input_data->philo_nbr)
-	{
-		table->i = i + 1;
-		pid = fork();
-		if (pid < 0)
-		{
-			write(2, "Fork error\n", 11);
-			break ;
-		}
-		else if (!pid)
-		{
-			routine(i + 1, table);
-			exit(EXIT_SUCCESS);
-		}
-		pids[i] = pid;
-		i++;
-	}
+		return (1);
 	use_threads(table, pids);
-	// wait_for_death(table, pids);
-	// if (table->input_data->meal_nbr != -1)
-	// 	wait_for_everyone_fed(table, pids);
 	i = 0;
 	while (i < table->input_data->philo_nbr)
 	{
@@ -60,33 +39,37 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	wait_for_everyone_fed(t_table *table, pid_t *pids)
+pid_t	*fork_children(t_table *table)
 {
-	int	i;
+	pid_t	*pids;
+	pid_t	pid;
+	int		i;
 
+	pids = malloc(sizeof(pid_t) * table->input_data->philo_nbr);
+	if (!pids)
+		return (printf("error in pids malloc\n"), clean_all(table), NULL);
 	i = 0;
 	while (i < table->input_data->philo_nbr)
 	{
-		sem_wait(table->sems.max_meals_eaten);
+		table->i = i + 1;
+		pid = fork();
+		if (pid < 0)
+		{
+			write(2, "Fork error\n", 11);
+			break ;
+		}
+		run_child(table, pid, i);
+		pids[i] = pid;
 		i++;
 	}
-	i = 0;
-	while (i < table->input_data->philo_nbr)
-	{
-		kill(pids[i], SIGKILL);
-		i++;
-	}
+	return (pids);
 }
 
-void	wait_for_death(t_table *table, pid_t *pids)
+void	run_child(t_table *table, pid_t pid, int i)
 {
-	int	i;
-
-	sem_wait(table->sems.death);
-	i = 0;
-	while (i < table->input_data->philo_nbr)
+	if (!pid)
 	{
-		kill(pids[i], SIGKILL);
-		i++;
+		routine(i + 1, table);
+		exit(EXIT_SUCCESS);
 	}
 }

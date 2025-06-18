@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 20:43:47 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/18 17:52:46 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:31:20 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	init_sems(t_table *table)
 		0644, table->input_data->philo_nbr);
 	table->sems.print = sem_open("/print", O_CREAT | O_EXCL, 0644, 1);
 	table->sems.death = sem_open("/death", O_CREAT | O_EXCL, 0644, 0);
-	table->sems.max_meals_eaten = sem_open("/max_meals", O_CREAT | O_EXCL, 0644, 0);
+	table->sems.max_meals_eaten = sem_open("/max_meals", \
+		O_CREAT | O_EXCL, 0644, 0);
 	table->sems.end = sem_open("/end", O_CREAT | O_EXCL, 0644, 1);
 	sem_init(&table->sems.data, 0, 1);
 	if (table->sems.forks == SEM_FAILED || table->sems.print == SEM_FAILED \

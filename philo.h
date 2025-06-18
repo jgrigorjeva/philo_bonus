@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 16:33:48 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/18 17:58:20 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:38:39 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,20 @@ typedef struct s_monitor_args
 // init
 t_table	*init_table(int argc, char **argv);
 t_input	*parse_input(int argc, char **argv);
+void	fill_input_numbers(t_input *input, char **argv);
+int		ft_atoi(const char *nptr);
 int		init_sems(t_table *table);
 
 // routine
 void	routine(int i, t_table *table);
+pid_t	*fork_children(t_table *table);
+void	run_child(t_table *table, pid_t pid, int i);
 void	print_status(t_table *table, int i, const char *msg);
 void	reopen_sems(t_table *table);
 void	think(t_table *table, int i);
 void	go_sleep(t_table *table, int i);
 void	eat(t_table *table, int i);
 t_bool	is_dead(t_table *table, int i);
-void	wait_for_death(t_table *table, pid_t *pids);
-void	wait_for_everyone_fed(t_table *table, pid_t *pids);
 void	handle_one_philo(t_table *table);
 t_bool	should_die(t_table *table);
 
@@ -98,7 +100,6 @@ long	get_time(void);
 int		ft_msleep(unsigned int time);
 int		ft_msleep_check(unsigned int time, t_table *table, int i);
 void	wait_before_start(t_table *table);
-
 
 // end
 void	clean_all(t_table *table);
