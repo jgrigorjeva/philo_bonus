@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 20:43:47 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 23:28:06 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:52:46 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_table	*init_table(int argc, char **argv)
 	table->last_fed = table->start_time;
 	table->is_dead = FALSE;
 	table->meals_eaten = 0;
+	table->i = 0;
 	return (table);
 }
 
@@ -46,6 +47,7 @@ int	init_sems(t_table *table)
 	table->sems.death = sem_open("/death", O_CREAT | O_EXCL, 0644, 0);
 	table->sems.max_meals_eaten = sem_open("/max_meals", O_CREAT | O_EXCL, 0644, 0);
 	table->sems.end = sem_open("/end", O_CREAT | O_EXCL, 0644, 1);
+	sem_init(&table->sems.data, 0, 1);
 	if (table->sems.forks == SEM_FAILED || table->sems.print == SEM_FAILED \
 		|| table->sems.death == SEM_FAILED \
 		|| table->sems.max_meals_eaten == SEM_FAILED \

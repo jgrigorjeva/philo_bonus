@@ -1,0 +1,525 @@
+==14328== Helgrind, a thread error detector
+==14328== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==14328== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14328== Command: ./philo_bonus 9 800 200 200 3
+==14328== 
+==14330== ---Thread-Announcement------------------------------------------
+==14330== 
+==14330== Thread #1 is the program's root thread
+==14330== 
+==14330== ---Thread-Announcement------------------------------------------
+==14330== 
+==14330== Thread #2 was created
+==14330==    at 0x499D9F3: clone (clone.S:76)
+==14330==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14330==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14330==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14330==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14330==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330== 
+==14330== ----------------------------------------------------------------
+==14330== 
+==14330== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14330== Locks held: none
+==14330==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330== 
+==14330== This conflicts with a previous read of size 8 by thread #2
+==14330== Locks held: none
+==14330==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14330==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14330==    by 0x499DA03: clone (clone.S:100)
+==14330==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14330==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14330==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==  Block was alloc'd by thread #1
+==14330== 
+==14329== ---Thread-Announcement------------------------------------------
+==14329== 
+==14329== Thread #1 is the program's root thread
+==14329== 
+==14329== ---Thread-Announcement------------------------------------------
+==14329== 
+==14329== Thread #2 was created
+==14329==    at 0x499D9F3: clone (clone.S:76)
+==14329==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14329==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14329==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14329==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14329==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329== 
+==14329== ----------------------------------------------------------------
+==14329== 
+==14329== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14329== Locks held: none
+==14329==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329== 
+==14329== This conflicts with a previous read of size 8 by thread #2
+==14329== Locks held: none
+==14329==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14329==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14329==    by 0x499DA03: clone (clone.S:100)
+==14329==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14329==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14329==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==  Block was alloc'd by thread #1
+==14329== 
+==14334== ---Thread-Announcement------------------------------------------
+==14334== 
+==14334== Thread #1 is the program's root thread
+==14334== 
+==14334== ---Thread-Announcement------------------------------------------
+==14334== 
+==14334== Thread #2 was created
+==14334==    at 0x499D9F3: clone (clone.S:76)
+==14334==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14334==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14334==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14334==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14334==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334== 
+==14334== ----------------------------------------------------------------
+==14334== 
+==14334== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14334== Locks held: none
+==14334==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334== 
+==14334== This conflicts with a previous read of size 8 by thread #2
+==14334== Locks held: none
+==14334==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14334==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14334==    by 0x499DA03: clone (clone.S:100)
+==14334==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14334==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14334==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==  Block was alloc'd by thread #1
+==14334== 
+==14334== ----------------------------------------------------------------
+==14334== 
+==14334== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14334== Locks held: none
+==14334==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14334==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14334==    by 0x499DA03: clone (clone.S:100)
+==14334== 
+==14334== This conflicts with a previous write of size 8 by thread #1
+==14334== Locks held: none
+==14334==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14334==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329== ----------------------------------------------------------------
+==14334==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14329== 
+==14334==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14329== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14330== ----------------------------------------------------------------
+==14334==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329== Locks held: none
+==14330== 
+==14334==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14334==  Block was alloc'd by thread #1
+==14334== 
+==14330== Locks held: none
+==14329==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14329==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14330==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14330==    by 0x499DA03: clone (clone.S:100)
+==14330== 
+==14329==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14330== This conflicts with a previous write of size 8 by thread #1
+==14330== Locks held: none
+==14329==    by 0x499DA03: clone (clone.S:100)
+==14330==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329== 
+==14330==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329== This conflicts with a previous write of size 8 by thread #1
+==14330==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14329== Locks held: none
+==14330==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14330==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14330==  Block was alloc'd by thread #1
+==14330== 
+==14329==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14329==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14329==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14329==  Block was alloc'd by thread #1
+==14329== 
+==14332== ---Thread-Announcement------------------------------------------
+==14332== 
+==14332== Thread #1 is the program's root thread
+==14332== 
+==14332== ---Thread-Announcement------------------------------------------
+==14332== 
+==14332== Thread #2 was created
+==14332==    at 0x499D9F3: clone (clone.S:76)
+==14332==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14332==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14332==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14332==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14332==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332== 
+==14332== ----------------------------------------------------------------
+==14332== 
+==14332== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14332== Locks held: none
+==14332==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332== 
+==14332== This conflicts with a previous read of size 8 by thread #2
+==14332== Locks held: none
+==14332==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14332==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14332==    by 0x499DA03: clone (clone.S:100)
+==14332==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14332==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14332==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==  Block was alloc'd by thread #1
+==14332== 
+==14332== ----------------------------------------------------------------
+==14332== 
+==14332== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14332== Locks held: none
+==14332==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14332==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14332==    by 0x499DA03: clone (clone.S:100)
+==14332== 
+==14332== This conflicts with a previous write of size 8 by thread #1
+==14332== Locks held: none
+==14332==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14332==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14332==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14332==  Block was alloc'd by thread #1
+==14332== 
+==14338== ---Thread-Announcement------------------------------------------
+==14338== 
+==14338== Thread #1 is the program's root thread
+==14338== 
+==14338== ---Thread-Announcement------------------------------------------
+==14338== 
+==14338== Thread #2 was created
+==14338==    at 0x499D9F3: clone (clone.S:76)
+==14338==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14338==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14338==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14338==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14338==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338== 
+==14338== ----------------------------------------------------------------
+==14338== 
+==14338== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14338== Locks held: none
+==14338==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338== 
+==14338== This conflicts with a previous read of size 8 by thread #2
+==14338== Locks held: none
+==14338==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14338==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14338==    by 0x499DA03: clone (clone.S:100)
+==14338==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14338==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14338==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==  Block was alloc'd by thread #1
+==14338== 
+==14338== ----------------------------------------------------------------
+==14338== 
+==14338== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14338== Locks held: none
+==14338==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14338==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14338==    by 0x499DA03: clone (clone.S:100)
+==14338== 
+==14338== This conflicts with a previous write of size 8 by thread #1
+==14338== Locks held: none
+==14338==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14338==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14338==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14338==  Block was alloc'd by thread #1
+==14338== 
+==14336== ---Thread-Announcement------------------------------------------
+==14336== 
+==14336== Thread #1 is the program's root thread
+==14336== 
+==14336== ---Thread-Announcement------------------------------------------
+==14336== 
+==14336== Thread #2 was created
+==14336==    at 0x499D9F3: clone (clone.S:76)
+==14336==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14336==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14336==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14336==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14336==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336== 
+==14336== ----------------------------------------------------------------
+==14336== 
+==14336== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14336== Locks held: none
+==14336==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336== 
+==14336== This conflicts with a previous read of size 8 by thread #2
+==14336== Locks held: none
+==14336==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14336==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14336==    by 0x499DA03: clone (clone.S:100)
+==14336==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14336==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14336==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==  Block was alloc'd by thread #1
+==14336== 
+==14336== ----------------------------------------------------------------
+==14336== 
+==14336== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14336== Locks held: none
+==14336==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14336==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14336==    by 0x499DA03: clone (clone.S:100)
+==14336== 
+==14336== This conflicts with a previous write of size 8 by thread #1
+==14336== Locks held: none
+==14336==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14336==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14336==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14336==  Block was alloc'd by thread #1
+==14336== 
+==14342== ---Thread-Announcement------------------------------------------
+==14342== 
+==14342== Thread #1 is the program's root thread
+==14342== 
+==14342== ---Thread-Announcement------------------------------------------
+==14342== 
+==14342== Thread #2 was created
+==14342==    at 0x499D9F3: clone (clone.S:76)
+==14342==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14342==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14342==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14342==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14342==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342== 
+==14342== ----------------------------------------------------------------
+==14342== 
+==14342== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14342== Locks held: none
+==14342==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344== ---Thread-Announcement------------------------------------------
+==14342==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344== 
+==14342==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344== Thread #1 is the program's root thread
+==14342== 
+==14344== 
+==14342== This conflicts with a previous read of size 8 by thread #2
+==14344== ---Thread-Announcement------------------------------------------
+==14342== Locks held: none
+==14344== 
+==14344== Thread #2 was created
+==14342==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14342==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14342==    by 0x499DA03: clone (clone.S:100)
+==14342==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14342==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14342==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    at 0x499D9F3: clone (clone.S:76)
+==14342==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==  Block was alloc'd by thread #1
+==14344==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14342== 
+==14344==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14344==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14344==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14344==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344== 
+==14344== ----------------------------------------------------------------
+==14344== 
+==14344== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14344== Locks held: none
+==14344==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344== 
+==14344== This conflicts with a previous read of size 8 by thread #2
+==14344== Locks held: none
+==14344==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14344==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14344==    by 0x499DA03: clone (clone.S:100)
+==14344==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14344==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14344==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==  Block was alloc'd by thread #1
+==14344== 
+==14342== ----------------------------------------------------------------
+==14342== 
+==14342== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14342== Locks held: none
+==14342==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14342==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14342==    by 0x499DA03: clone (clone.S:100)
+==14344== ----------------------------------------------------------------
+==14342== 
+==14344== 
+==14342== This conflicts with a previous write of size 8 by thread #1
+==14342== Locks held: none
+==14344== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14344== Locks held: none
+==14344==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14342==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14344==    by 0x499DA03: clone (clone.S:100)
+==14342==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14344== 
+==14344== This conflicts with a previous write of size 8 by thread #1
+==14344== Locks held: none
+==14342==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14342==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342==  Block was alloc'd by thread #1
+==14344==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14342== 
+==14344==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14344==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14344==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14344==  Block was alloc'd by thread #1
+==14344== 
+==14340== ---Thread-Announcement------------------------------------------
+==14340== 
+==14340== Thread #1 is the program's root thread
+==14340== 
+==14340== ---Thread-Announcement------------------------------------------
+==14340== 
+==14340== Thread #2 was created
+==14340==    at 0x499D9F3: clone (clone.S:76)
+==14340==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14340==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14340==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14340==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14340==    by 0x4019E9: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340== 
+==14340== ----------------------------------------------------------------
+==14340== 
+==14340== Possible data race during write of size 8 at 0x4AA4078 by thread #1
+==14340== Locks held: none
+==14340==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340== 
+==14340== This conflicts with a previous read of size 8 by thread #2
+==14340== Locks held: none
+==14340==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14340==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14340==    by 0x499DA03: clone (clone.S:100)
+==14340==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14340==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14340==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==  Block was alloc'd by thread #1
+==14340== 
+==14340== ----------------------------------------------------------------
+==14340== 
+==14340== Possible data race during read of size 8 at 0x4AA4078 by thread #2
+==14340== Locks held: none
+==14340==    at 0x40277D: death_monitor (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14340==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14340==    by 0x499DA03: clone (clone.S:100)
+==14340== 
+==14340== This conflicts with a previous write of size 8 by thread #1
+==14340== Locks held: none
+==14340==    at 0x401C6C: eat (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401AE7: routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401369: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==  Address 0x4aa4078 is 56 bytes inside a block of size 80 alloc'd
+==14340==    at 0x484A919: malloc (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14340==    by 0x401D60: init_table (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==    by 0x401292: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14340==  Block was alloc'd by thread #1
+==14340== 
+==14328== ---Thread-Announcement------------------------------------------
+==14328== 
+==14328== Thread #3 was created
+==14328==    at 0x499D9F3: clone (clone.S:76)
+==14328==    by 0x499E8EE: __clone_internal (clone-internal.c:83)
+==14328==    by 0x490C6D8: create_thread (pthread_create.c:295)
+==14328==    by 0x490D1FF: pthread_create@@GLIBC_2.34 (pthread_create.c:828)
+==14328==    by 0x4853767: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14328==    by 0x40254D: use_threads (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14328==    by 0x40139E: main (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14328== 
+==14328== ----------------------------------------------------------------
+==14328== 
+==14328== Thread #3: Bug in libpthread: sem_wait succeeded on semaphore without prior sem_post
+==14328==    at 0x4854112: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14328==    by 0x4026AF: fed_monitor_routine (in /home/jgrigorj/projects/philo_bonus/philo_bonus)
+==14328==    by 0x485396A: ??? (in /usr/libexec/valgrind/vgpreload_helgrind-amd64-linux.so)
+==14328==    by 0x490CAC2: start_thread (pthread_create.c:442)
+==14328==    by 0x499DA03: clone (clone.S:100)
+==14328== 
+==14328== 
+==14328== Use --history-level=approx or =none to gain increased speed, at
+==14328== the cost of reduced accuracy of conflicting-access information
+==14328== For lists of detected and suppressed errors, rerun with: -s
+==14328== ERROR SUMMARY: 9 errors from 1 contexts (suppressed: 0 from 0)

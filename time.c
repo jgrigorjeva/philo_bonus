@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 18:02:33 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/16 23:18:18 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:57:47 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,16 @@ int	ft_msleep(unsigned int time)
 	return (0);
 }
 
-// int	ft_msleep_check(unsigned int time, t_table *table)
-// {
-// 	long	start;
+int	ft_msleep_check(unsigned int time, t_table *table, int i)
+{
+	long	start;
 
-// 	start = get_time();
-// 	while ((get_time() - start) \
-// 	< time && (time - (get_time() - start)) / 10)
-// 	{
-// 		if (is_dead(table) || all_meals_eaten(table))
-// 			return (0);
-// 		usleep(10000);
-// 	}
-// 	if (!is_dead(table) && !all_meals_eaten(table) \
-// 	&& (get_time() - start) < time)
-// 		ft_msleep(time - (get_time() - start));
-// 	return (0);
-// }
+	start = get_time();
+	while ((get_time() - start) < time)
+	{
+		if (is_dead(table, i))
+			return (0);
+		usleep(1000);
+	}
+	return (0);
+}

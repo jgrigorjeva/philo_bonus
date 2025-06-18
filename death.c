@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:08:27 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 23:21:57 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:57:33 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 t_bool	should_die(t_table *table)
 {
-	return (get_time() - table->last_fed >= table->input_data->ttd);
+	t_bool	status;
+
+	sem_wait(&table->sems.data);
+	status = get_time() - table->last_fed >= table->input_data->ttd;
+	sem_post(&table->sems.data);
+	return (status);
 }
 
 void	philo_dies(t_table *table, int i)

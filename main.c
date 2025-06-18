@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 01:09:36 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 20:10:39 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:16:56 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 		return (printf("error in pids malloc\n"), clean_all(table), 1);
 	while (i < table->input_data->philo_nbr)
 	{
+		table->i = i + 1;
 		pid = fork();
 		if (pid < 0)
 		{

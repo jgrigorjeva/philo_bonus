@@ -6,7 +6,7 @@
 /*   By: jgrigorj <jgrigorj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 16:33:48 by jgrigorj          #+#    #+#             */
-/*   Updated: 2025/06/17 20:10:39 by jgrigorj         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:58:20 by jgrigorj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_sem
 	sem_t	*death;
 	sem_t	*max_meals_eaten;
 	sem_t	*end;
+	sem_t	data;
 }	t_sem;
 
 typedef struct s_table
@@ -60,6 +61,7 @@ typedef struct s_table
 	long	last_fed;
 	t_bool	is_dead;
 	int		meals_eaten;
+	int		i;
 }	t_table;
 
 typedef struct s_monitor_args
@@ -84,14 +86,17 @@ void	eat(t_table *table, int i);
 t_bool	is_dead(t_table *table, int i);
 void	wait_for_death(t_table *table, pid_t *pids);
 void	wait_for_everyone_fed(t_table *table, pid_t *pids);
+void	handle_one_philo(t_table *table);
+t_bool	should_die(t_table *table);
 
 // threads
 void	use_threads(t_table *table, pid_t *pids);
+void	*death_monitor(void *arg);
 
 // time
 long	get_time(void);
 int		ft_msleep(unsigned int time);
-// int		ft_msleep_check(unsigned int time, t_table *table);
+int		ft_msleep_check(unsigned int time, t_table *table, int i);
 void	wait_before_start(t_table *table);
 
 
